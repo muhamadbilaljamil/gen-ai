@@ -1,17 +1,20 @@
+# conda install conda-forge::ollama 
+# pip install ollama
+
 import ollama
 
 # Initialize the Ollama client
 client = ollama.Client()
 
 # Define the model and the input prompt
-model = "deepseek-r1"
-prompt = "What is the meaning of life?"
+model = "llama3.2"
+prompt = "How i can start my blog to earn money?"
 
+# Send the query to the model with streaming enabled
+response = client.generate(model, prompt, stream=True)
 
-# Send the query from the moedl
-response = client.generate(model, prompt)
+# Print the response in a streaming manner
+print("Response from Ollama:\n")
 
-# Print the response from the model
-
-print("Response form Ollama:")
-print(response.response)  # Output: "42"  # This is the response from the model
+for chunk in response:
+    print(chunk.response, end="", flush=True)

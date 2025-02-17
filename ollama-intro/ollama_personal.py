@@ -8,7 +8,8 @@ url = "http://localhost:11434/api/chat"
 # Define the payload (your input prompt)
 
 payload = {
-    "model" : "deepseek-r1",
+    # "model" : "deepseek-r1",
+    "model" : "llama3.2",
     "messages" : [{"role" :"user", "content" : "What is the meaning of life?"}],
 }
 

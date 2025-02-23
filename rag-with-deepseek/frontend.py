@@ -1,3 +1,5 @@
+from rag_pipeline import answer_query, retrieve_docs, llm_model
+
 # Step1 : Setup upload PDF functionality
 import streamlit as st
 
@@ -17,9 +19,12 @@ if ask_question:
     
         # RAG Pipeline
     
-        fixed_response = "Hi, this is a fixed response!"
+        # fixed_response = "Hi, this is a fixed response!"
+
+        retrieved_docs = retrieve_docs(user_query)
+        response = answer_query(documents=retrieved_docs, model=llm_model, query=user_query)
     
-        st.chat_message("AI Lawyer: I'm here to help. What's your question?").write(fixed_response)
+        st.chat_message("AI Lawyer: I'm here to help. What's your question?").write(response)
         
     else:
         

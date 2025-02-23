@@ -7,7 +7,7 @@ from langchain_community.vectorstores import FAISS
 
 pdfs_directory = "/pdfs"
 file_path = "eng.pdf"
-ollama_model_name = "deepseek-r1:1.5b"
+ollama_model_name = "deepseek-r1"
 
 
 # Step : Upload & Load row PDF(s)
@@ -23,7 +23,7 @@ def load_pdf(file_path):
     return documents
   
 documents = load_pdf(file_path)
-print(len(documents))
+# print(len(documents))
 
 # Step : Create chunks
 
